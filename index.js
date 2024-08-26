@@ -7,7 +7,12 @@ const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 
 // call needed info by 'click' button. need to add 'Enter' as well.
+var startTime = 0;
+var endTime = 0;
+
 search.addEventListener('click', () => {
+    startTime = Date.now();
+    console.log(`Start Time is ${startTime}`);
     const APIKey = api;
     const city = document.querySelector('.search-box input').value;
     if (city === '') {
@@ -85,5 +90,8 @@ search.addEventListener('click', () => {
             weatherBox.classList.add('fadeIn');
             weatherDetails.classList.add('fadeIn');
             container.style.height = '590px';
+            endTime = Date.now();
+            console.log(`endTime is ${endTime}`);
+            console.log(`Elapsed Time is ${endTime-startTime}`);
      });
 });
